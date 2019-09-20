@@ -1,0 +1,42 @@
+{
+  "name": "react-starter-kit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open --mode development",
+    "serve": "webpack-dev-server --open --mode production",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varundey/react-starter-kit.git"
+  },
+  "keywords": [
+    "react",
+    "boilerpate",
+    "starter kit"
+  ],
+  "author": "Varun Dey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/varundey/react-starter-kit/issues"
+  },
+  "homepage": "https://github.com/varundey/react-starter-kit#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
+  },
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
