@@ -55,14 +55,20 @@ export default class List extends Component {
 	saveList() {
 		this.setState({isUserCreatingList: false});
 		this.setState(state => {
-			if( event.target.value !== "")
+			if( event.target.value !== "" && !state.lists.includes(event.target.value))
 				state.lists.push(event.target.value)
 		});
 	}
 
 	render() {
+		const style = {
+			display: 'flex',
+			flexDirection: 'row',
+			justifyContent: 'space-between'
+		};
+
 		return (
-				<div>
+				<div style={style}>
 					{
 						this.state.lists.map(list =>
 								<div draggable key={list}>
