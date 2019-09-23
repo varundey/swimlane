@@ -1,17 +1,18 @@
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
 
-export default class App extends Component {
+import List from "./components/List.jsx";
+
+class Board extends Component {
+
 	render() {
 		return (
-				<div>
-					Hello, World!
-				</div>
+				<List/>
 		)
 	}
 }
 
 ReactDOM.render(
-		<App/>,
+		<Board/>,
 		document.getElementById("react-template-container")
 );
