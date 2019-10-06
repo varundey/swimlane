@@ -25,15 +25,15 @@ export default class List extends Component {
 	render() {
 		return(
 				<div className="list-container">
+					{this.props.listName}
 					{
-						this.props.lists.map(list => (
-								<div className="list" id={list.id} key={list.id}>
-									{list.name}
-									<Card cards={this.state.cards}/>
-									<InputForm text="Add Card" onSave={this._addCard}/>
+						this.state.cards.map(card => (
+								<div className="card" id={card.id} key={card.id}>
+									<Card cardName={card.name}/>
 								</div>
 						))
 					}
+					<InputForm text="Add Card" onSave={this._addCard}/>
 				</div>
 		)
 	}

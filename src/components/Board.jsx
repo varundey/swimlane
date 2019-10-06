@@ -26,9 +26,11 @@ export default class Board extends Component {
 		return (
 				<div className="board-container">
 					{
-						this.state.lists.length ?
-								<List lists={this.state.lists}/> :
-								null
+						this.state.lists.map(list => (
+								<div className="list" id={list.id} key={list.id}>
+									<List listName={list.name}/>
+								</div>
+						))
 					}
 					<InputForm text="Add List" onSave={this._addList}/>
 				</div>
