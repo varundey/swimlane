@@ -38,6 +38,7 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
+    "antd": "^4.2.0",
     "prettier": "^2.0.5",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
