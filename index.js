@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
 
-import BoardCreator from "./components/BoardCreator";
+import BoardCreator from "./components/BoardCreator/BoardCreator";
 
 ReactDOM.render(
   <BoardCreator />,
