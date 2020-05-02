@@ -1,9 +1,6 @@
-import React from "react"
-import ReactDOM from "react-dom"
+import React from "react";
+import ReactDOM from "react-dom";
 
-import Board from "./components/Board.jsx"
+import Board from "./components/Board.jsx";
 
-ReactDOM.render(
-		<Board/>,
-		document.getElementById("react-template-container")
-);
+ReactDOM.render(<Board />, document.getElementById("react-template-container"));

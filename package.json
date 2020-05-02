@@ -38,6 +38,7 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
+    "prettier": "^2.0.5",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-input-form": "^1.0.2"
