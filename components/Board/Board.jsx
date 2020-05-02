@@ -13,7 +13,7 @@ const BoardHeader = (props) => (
 const Board = (props) => {
   const [boardListArr, setBoardListArr] = useState([]);
 
-  const AddListCard = (props) => {
+  const ListCard = (props) => {
     const [isAddListClicked, setAddListClicked] = useState(false);
 
     const AddListCard = (props) => (
@@ -44,11 +44,11 @@ const Board = (props) => {
     <>
       <BoardHeader boardName={props.boardName} />
       {boardListArr.map((listName) => (
-        <Card size="small" className="add-list-card">
+        <Card key={listName} size="small" className="add-list-card">
           <p>{listName}</p>
         </Card>
       ))}
-      <AddListCard />
+      <ListCard />
     </>
   );
 };
