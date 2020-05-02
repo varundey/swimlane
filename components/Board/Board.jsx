@@ -43,12 +43,14 @@ const Board = (props) => {
   return (
     <>
       <BoardHeader boardName={props.boardName} />
-      {boardListArr.map((listName) => (
-        <Card key={listName} size="small" className="add-list-card">
-          <p>{listName}</p>
-        </Card>
-      ))}
-      <ListCard />
+      <div className="list-container">
+        {boardListArr.map((listName) => (
+          <Card key={listName} size="small" className="list-card">
+            <p>{listName}</p>
+          </Card>
+        ))}
+        <ListCard />
+      </div>
     </>
   );
 };
