@@ -12,6 +12,27 @@ const BoardHeader = (props) => (
 
 const Board = (props) => {
   const [boardListArr, setBoardListArr] = useState([]);
+  const [cardListArr, setCardListArr] = useState([]);
+
+  const ListCards = (props) => {
+    const [isAddCardClicked, setIsAddCardClicked] = useState(false);
+
+    const AddCard = (props) => (
+      <div onClick={() => setIsAddCardClicked(true)}>Add Card</div>
+    );
+
+    const InputAddCard = (props) => (
+      <Input
+        className="input-list-card"
+        placeholder="Card Name"
+        onPressEnter={(event) =>
+          setCardListArr([...cardListArr, event.target.value])
+        }
+      />
+    );
+
+    return isAddCardClicked ? <InputAddCard /> : <AddCard />;
+  };
 
   const ListCard = (props) => {
     const [isAddListClicked, setAddListClicked] = useState(false);
@@ -45,8 +66,16 @@ const Board = (props) => {
       <BoardHeader boardName={props.boardName} />
       <div className="list-container">
         {boardListArr.map((listName) => (
-          <Card key={listName} size="small" className="list-card">
+          <Card
+            actions={[<ListCards />]}
+            key={listName}
+            size="small"
+            className="list-card"
+          >
             <p>{listName}</p>
+            {cardListArr.map((card) => (
+              <div key={card}>{card}</div>
+            ))}
           </Card>
         ))}
         <ListCard />
