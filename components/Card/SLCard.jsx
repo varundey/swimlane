@@ -12,7 +12,10 @@ const AddCard = (props) => {
     <Input
       className="input-list-card"
       placeholder="Card Name"
-      onPressEnter={(event) => props.addCard(event.target.value)}
+      onPressEnter={(event) => {
+        props.addCard(event.target.value);
+        setIsAddCardClicked(false);
+      }}
     />
   );
 
