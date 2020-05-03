@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import { Card, Input } from "antd";
+import CardRenderer, { AddCard } from "../Card/SLCard";
 
 const List = (props) => {
-  const AddToList = (props) => {
+  const [cardsArr, setCardsArr] = useState([]);
+
+  const addCardToList = (cardName) => {
+    return setCardsArr([...cardsArr, cardName]);
+  };
+
+  const AddList = (props) => {
     const [isAddListClicked, setAddListClicked] = useState(false);
 
     const AddListButton = (props) => (
@@ -35,18 +42,16 @@ const List = (props) => {
     <div className="list-container">
       {props.lists.map((listName) => (
         <Card
-          // actions={[<ListCards />]}
+          actions={[<AddCard addCard={addCardToList} />]}
           key={listName}
           size="small"
           className="list-card"
         >
           <p>{listName}</p>
-          {/*{cardListArr.map((card) => (*/}
-          {/*  <div key={card}>{card}</div>*/}
-          {/*))}*/}
+          <CardRenderer cards={cardsArr} addCard={addCardToList} />
         </Card>
       ))}
-      <AddToList addList={props.addList} />
+      <AddList addList={props.addList} />
     </div>
   );
 };
