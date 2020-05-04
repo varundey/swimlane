@@ -36,5 +36,7 @@ const CardRenderer = (props) => {
   );
 };
 
-export default CardRenderer;
-export { AddCard };
+export default {
+  CardRenderer,
+  AddCard,
+};

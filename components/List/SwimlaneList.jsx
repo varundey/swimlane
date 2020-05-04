@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Card, Input } from "antd";
-import CardRenderer, { AddCard } from "../Card/SLCard";
+import SwimlaneCard from "../Card/SwimlaneCard";
 
-const List = (props) => {
+const { CardRenderer, AddCard } = SwimlaneCard;
+
+const SwimlaneList = (props) => {
   const [cardsArr, setCardsArr] = useState([]);
 
   const addCardToList = (cardName) => {
@@ -56,4 +58,4 @@ const List = (props) => {
   );
 };
 
-export default List;
+export default SwimlaneList;

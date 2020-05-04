@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Input, PageHeader } from "antd";
-import List from "../List/List";
+import SwimlaneList from "../List/SwimlaneList";
 import "./Board.css";
 
 const BoardHeader = (props) => (
@@ -21,7 +21,7 @@ const Board = (props) => {
   return (
     <>
       <BoardHeader boardName={props.boardName} />
-      <List lists={listArr} addList={addListToBoard} />
+      <SwimlaneList lists={listArr} addList={addListToBoard} />
     </>
   );
 };
