@@ -43,8 +43,8 @@ const SwimlaneList = (props) => {
   const [cardsArr, setCardsArr] = useState([]);
   const { lists } = props;
 
-  const addCardToList = (cardName) => {
-    return setCardsArr([...cardsArr, cardName]);
+  const addCardToList = (card) => {
+    return setCardsArr([...cardsArr, card]);
   };
 
   const ListRenderer = (props) => {

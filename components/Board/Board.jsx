@@ -14,8 +14,8 @@ const BoardHeader = (props) => (
 const Board = (props) => {
   const [listArr, setListArr] = useState([]);
 
-  const addListToBoard = (listName) => {
-    setListArr([...listArr, listName]);
+  const addListToBoard = (list) => {
+    setListArr([...listArr, list]);
   };
 
   return (
