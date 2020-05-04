@@ -56,7 +56,7 @@ const SwimlaneList = (props) => {
         className="list-card"
       >
         <p>{listName}</p>
-        <CardRenderer cards={cardsArr} addCard={addCardToList} />
+        <CardRenderer cards={cardsArr} />
       </Card>
     );
   };
