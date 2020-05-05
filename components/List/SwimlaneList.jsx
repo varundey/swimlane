@@ -48,15 +48,15 @@ const SwimlaneList = (props) => {
   };
 
   const ListRenderer = (props) => {
-    const { listName } = props;
+    const { listName, id } = props;
     return (
       <Card
-        actions={[<AddCard addCard={addCardToList} />]}
+        actions={[<AddCard listId={id} addCard={addCardToList} />]}
         size="small"
         className="list-card"
       >
         <p>{listName}</p>
-        <CardRenderer cards={cardsArr} />
+        <CardRenderer listId={id} cards={cardsArr} />
       </Card>
     );
   };
@@ -65,7 +65,7 @@ const SwimlaneList = (props) => {
     <div className="list-container">
       {lists.map((list) => {
         const { id, value } = list;
-        return <ListRenderer key={id} listName={value} />;
+        return <ListRenderer key={id} id={id} listName={value} />;
       })}
       <AddList addList={props.addList} />
     </div>

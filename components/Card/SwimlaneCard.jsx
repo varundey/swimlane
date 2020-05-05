@@ -10,14 +10,14 @@ const AddCard = (props) => {
   );
 
   const InputCardName = (props) => {
-    const { addCard } = props;
+    const { addCard, listId } = props;
     return (
       <Input
         className="input-list-card"
         placeholder="Card Name"
         onPressEnter={(event) => {
           const id = uuid();
-          addCard({ id, value: event.target.value });
+          addCard({ listId, id, value: event.target.value });
           setIsAddCardClicked(false);
         }}
       />
@@ -25,20 +25,22 @@ const AddCard = (props) => {
   };
 
   return isAddCardClicked ? (
-    <InputCardName addCard={props.addCard} />
+    <InputCardName listId={props.listId} addCard={props.addCard} />
   ) : (
     <AddCardButton />
   );
 };
 
 const CardRenderer = (props) => {
-  const { cards } = props;
+  const { cards, listId } = props;
   return (
     <div className="card-container">
-      {cards.map((card) => {
-        const { id, value } = card;
-        return <div key={id}>{value}</div>;
-      })}
+      {cards
+        .filter((card) => card.listId === listId)
+        .map((card) => {
+          const { id, value } = card;
+          return <div key={id}>{value}</div>;
+        })}
     </div>
   );
 };
