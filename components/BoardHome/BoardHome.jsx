@@ -1,29 +1,22 @@
 import React, { useState } from "react";
-import { Input } from "antd";
 import "./BoardCreator.css";
 import Board from "../Board/Board";
+import CreateNewBoard from "./CreateNewBoard";
 
-const { Search } = Input;
+const ShowBoards = () => {};
 
-const BoardCreator = () => {
-  const [isBoardDisplayed, setIsBoardDisplayed] = useState(false);
-  const [boardName, setBoardName] = useState("");
+const BoardHome = () => {
+  const [boards, setBoards] = useState([]);
 
-  const CreateBoard = () => (
-    <div className="board-creator">
-      <Search
-        placeholder="Board name"
-        enterButton="Create"
-        size="large"
-        onSearch={(value) => {
-          setIsBoardDisplayed(true);
-          setBoardName(value);
-        }}
-      />
-    </div>
+  const handleCreateNewBoard = (board) => {
+    setBoards([...boards, board]);
+  };
+
+  return (
+    <>
+      <CreateNewBoard createNewBoard={handleCreateNewBoard} />
+    </>
   );
-
-  return isBoardDisplayed ? <Board boardName={boardName} /> : <CreateBoard />;
 };
 
-export default BoardCreator;
+export default BoardHome;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Input, Card, Modal, Button } from "antd";
+import { v4 as uuid } from "uuid";
 
 const CreateNewBoardBox = (props) => {
   const { handleClick } = props;
@@ -44,6 +45,7 @@ const BoardTitleInputModal = (props) => {
 
 const CreateNewBoard = (props) => {
   const [isCreateNewBoardClicked, setCreateNewBoardClicked] = useState(false);
+  const { createNewBoard } = props;
 
   const handleCreateNewBoardClick = () => {
     setCreateNewBoardClicked(true);
@@ -51,6 +53,13 @@ const CreateNewBoard = (props) => {
 
   const handleCreateBoard = (boardName) => {
     setCreateNewBoardClicked(false);
+    const boardId = uuid();
+    createNewBoard([
+      {
+        boardId,
+        boardName,
+      },
+    ]);
   };
 
   const handleCancel = () => {
