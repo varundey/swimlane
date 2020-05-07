@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
 
-import BoardCreator from "./components/BoardCreator/BoardCreator";
+import BoardHome from "./components/BoardHome/BoardHome";
 
 ReactDOM.render(
-  <BoardCreator />,
+  <BoardHome />,
   document.getElementById("react-template-container")
 );
