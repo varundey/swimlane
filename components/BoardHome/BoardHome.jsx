@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./BoardCreator.css";
 import CreateNewBoard from "./CreateNewBoard";
-import { Card } from "antd";
+import { Card, Row, Col } from "antd";
 
 const ShowBoard = (props) => {
   const { title } = props;
@@ -21,11 +21,19 @@ const BoardHome = () => {
 
   return (
     <>
-      {boards.map((board) => {
-        const { boardId, boardName } = board;
-        return <ShowBoard key={boardId} title={boardName} />;
-      })}
-      <CreateNewBoard createNewBoard={handleCreateNewBoard} />
+      <Row gutter={[16, 16]}>
+        {boards.map((board) => {
+          const { boardId, boardName } = board;
+          return (
+            <Col span={4} key={boardId}>
+              <ShowBoard title={boardName} />
+            </Col>
+          );
+        })}
+        <Col span={4}>
+          <CreateNewBoard createNewBoard={handleCreateNewBoard} />
+        </Col>
+      </Row>
     </>
   );
 };
