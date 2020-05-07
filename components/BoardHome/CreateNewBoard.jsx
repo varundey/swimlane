@@ -5,15 +5,13 @@ import { v4 as uuid } from "uuid";
 const CreateNewBoardBox = (props) => {
   const { handleClick } = props;
   return (
-    <div className="create-board" style={{ width: "200px" }}>
-      <Card
-        bodyStyle={{ backgroundColor: "gray" }}
-        hoverable={true}
-        onClick={handleClick}
-      >
-        Create new Board
-      </Card>
-    </div>
+    <Card
+      bodyStyle={{ backgroundColor: "gray" }}
+      hoverable={true}
+      onClick={handleClick}
+    >
+      Create new Board
+    </Card>
   );
 };
 
@@ -37,6 +35,8 @@ const BoardTitleInputModal = (props) => {
         placeholder="Enter board title"
         size="middle"
         value={boardTitle}
+        onPressEnter={handleCreateBoardClick}
+        autoFocus={true}
         onChange={(event) => setBoardTitle(event.target.value)}
       />
     </Modal>
