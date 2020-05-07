@@ -54,12 +54,10 @@ const CreateNewBoard = (props) => {
   const handleCreateBoard = (boardName) => {
     setCreateNewBoardClicked(false);
     const boardId = uuid();
-    createNewBoard([
-      {
-        boardId,
-        boardName,
-      },
-    ]);
+    createNewBoard({
+      boardId,
+      boardName,
+    });
   };
 
   const handleCancel = () => {
