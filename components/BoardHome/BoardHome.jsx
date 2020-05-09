@@ -3,7 +3,7 @@ import CreateNewBoard from "./CreateNewBoard";
 import { Card, Row, Col } from "antd";
 import Board from "../Board/Board";
 
-const ShowBoard = (props) => {
+const ShowBoardName = (props) => {
   const { boardName, boardId, handleBoardClick } = props;
 
   const onBoardClick = () => {
@@ -44,7 +44,7 @@ const BoardHome = () => {
             const { boardId, boardName } = board;
             return (
               <Col span={4} key={boardId}>
-                <ShowBoard
+                <ShowBoardName
                   boardName={boardName}
                   boardId={boardId}
                   handleBoardClick={handleBoardClick}

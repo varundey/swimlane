@@ -1,8 +1,7 @@
 import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import BoardHome from "../BoardHome";
-import CreateNewBoard from "../CreateNewBoard";
 
 Object.defineProperty(window, "matchMedia", {
   writable: true,
@@ -35,4 +34,16 @@ test("Click on 'Create new Board' should open a modal", async () => {
   expect(queryByText("Create new Board")).toBeNull();
   expect(queryByPlaceholderText("Enter board title")).toBeTruthy();
   expect(queryByText("Create Board")).toBeTruthy();
+});
+
+test("Create and show board", () => {
+  const { queryByText, queryByPlaceholderText, container } = render(
+    <BoardHome />
+  );
+  fireEvent.click(queryByText("Create new Board"));
+  const boardNameInput = queryByPlaceholderText("Enter board title");
+  fireEvent.change(boardNameInput, { target: { value: "Test board name" } });
+  fireEvent.click(queryByText("Create Board"));
+  expect(container.querySelector(".ant-modal-root")).toBeNull();
+  expect(container.querySelectorAll(".ant-card")).toHaveLength(2);
 });
